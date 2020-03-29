@@ -5,17 +5,12 @@ void    ZombieHorde::announce()
     int i;
 
     i = 0;
-    Zombie *z[size];
+    Zombie *z = new Zombie[size];
     while (i < size)
     {   
-        z[i] = new Zombie();
-        z[i]->randomChump();
+        z[i].randomChump();
         i++;
     }
     i = 0;
-    while (i < size)
-    {
-        delete z[i];
-        i++;
-    }
+    delete[] z;
 }
