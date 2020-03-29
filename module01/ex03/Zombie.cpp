@@ -1,0 +1,27 @@
+#include "Zombie.hpp"
+
+void    Zombie::announce()
+{
+    std::cout << "Braiiiiinzzzz, The name is " << name;
+    std::cout << " and the type is " << type << ". What Sayyy?\n";
+}
+
+void    Zombie::setName(std::string z_name)
+{
+    name = z_name;
+}
+
+void    Zombie::setType(std::string z_type)
+{
+    type = z_type;
+}
+
+void    Zombie::randomChump()
+{
+    Zombie *z;
+    const std::string names[] = {"Gerrard", "Aguero", "Bernardo", "Suarez", "Fraudiola", "Torres", "Tevez"};
+    const std::string types[] = {"scouser", "cheater", "biter", "diver"};
+    z->setName(names[rand() % 7]);
+    z->setType(types[rand() % 4]);
+    z->announce();
+}
