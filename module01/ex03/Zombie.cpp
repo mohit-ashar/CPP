@@ -1,4 +1,5 @@
 #include "Zombie.hpp"
+#include <stdlib.h>
 
 void    Zombie::announce()
 {
@@ -16,12 +17,11 @@ void    Zombie::setType(std::string z_type)
     type = z_type;
 }
 
-void    Zombie::randomChump()
+void    Zombie::randomChump(Zombie *z)
 {
-    Zombie *z;
     const std::string names[] = {"Gerrard", "Aguero", "Bernardo", "Suarez", "Fraudiola", "Torres", "Tevez"};
     const std::string types[] = {"scouser", "cheater", "biter", "diver"};
+    srand(time(NULL) * rand());
     z->setName(names[rand() % 7]);
     z->setType(types[rand() % 4]);
-    z->announce();
 }

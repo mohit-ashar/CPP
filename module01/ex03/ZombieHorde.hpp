@@ -7,10 +7,9 @@ class ZombieHorde: public Zombie
 {
     public:
         int     size;
-        ZombieHorde(int n)
-        {
-            size = n;
-        }
+        Zombie  *z;
+        ZombieHorde(int n);
+        ~ZombieHorde();
         void    announce();
 };
 

@@ -1,16 +1,21 @@
 #include "ZombieHorde.hpp"
 
-void    ZombieHorde::announce()
+ZombieHorde::ZombieHorde(int n)
 {
     int i;
-
     i = 0;
-    Zombie *z = new Zombie[size];
-    while (i < size)
-    {   
-        z[i].randomChump();
+    this->size = n;
+    this->z = new Zombie[n];
+    while (i < n)
+    {
+        this->z[i].randomChump(&this->z[i]);
+        this->z[i].announce();
         i++;
     }
-    i = 0;
-    delete[] z;
+}
+
+ZombieHorde::~ZombieHorde()
+{
+    delete[] this->z;
+    this->z = 0;
 }
