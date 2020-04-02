@@ -1,0 +1,20 @@
+#include "Peon.hpp"
+
+Peon::Peon(std::string peon): Victim(peon)
+{
+    std::cout << "Zog zog." << std::endl;
+}
+
+Peon::Peon(Peon & peon): Victim(peon)
+{
+}
+
+Peon::~Peon()
+{
+    std::cout << "Bleuark..." << std::endl;
+}
+
+void        Peon::getPolymorphed() const
+{
+    std::cout << this->getName() << "  has been turned into a pink pony!" << std::endl;
+}
