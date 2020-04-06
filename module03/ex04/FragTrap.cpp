@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap( void ): ClapTrap(0, 0, 0, 0, 0, "unnamed",0 ,0 ,0)
+FragTrap::FragTrap( void ): ClapTrap(0, 0, 0, 0, 1, "unnamed",0 ,0 ,0)
 {
     std::cout << "Default FragTrap constructor called." << std::endl;
 }
@@ -49,4 +49,18 @@ void    FragTrap::vaulthunter_dot_exe(std::string const & target)
 void    FragTrap::getClapType()
 {
         std::cout << "(Get ready for some FragTrap Facetime...)FR4G-TP" << std::endl;
+}
+
+FragTrap&       FragTrap::operator=(FragTrap const & trap)
+{
+    this->setHitPoints(trap.getHitPoints());
+    this->setMaxEnergyPoints(trap.getMaxEnergyPoints());
+    this->setEnergyPoints(trap.getEnergyPoints());
+    this->setMaxHitPoints(trap.getMaxHitPoints());
+    this->setLevel(trap.getLevel());
+    this->setName(trap.getName());
+    this->setMeleeAttackDamage(trap.getMeleeAttackDamage());
+    this->setRangedAttackDamage(trap.getRangedAttackDamage());
+    this->setArmorDamageReduction(trap.getArmorDamageReduction());
+    return (*this);
 }

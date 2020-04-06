@@ -6,7 +6,6 @@ PowerFist::PowerFist():AWeapon("Power Fist", 8, 50)
 
 PowerFist::PowerFist(PowerFist & pf): AWeapon(pf)
 {
-    *this = pf;
 }
 
 PowerFist::~PowerFist()

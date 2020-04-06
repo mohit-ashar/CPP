@@ -12,10 +12,10 @@ class Sorcerer
     public:
         Sorcerer(std::string sorcName, std::string sorcTitle);
         Sorcerer(Sorcerer & src);
-        ~Sorcerer();
-        Sorcerer & operator = (Sorcerer const & src);
-        std::string getName() const;
-        std::string getTitle() const;
+        ~Sorcerer( void );
+        Sorcerer &  operator = (Sorcerer const & src);
+        std::string getName( void ) const;
+        std::string getTitle( void ) const;
         void        setName(std::string name);
         void        setTitle(std::string title);
         void        polymorph(Victim const & vic) const;

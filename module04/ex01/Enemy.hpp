@@ -4,14 +4,15 @@
 
 class Enemy
 {
-    protected:
+    private:
         Enemy( void );
+    protected:
         int hitPoints;
         std::string enemyType;
     public:
         Enemy(int hp, std::string const & type);
         Enemy(Enemy & enemy);
-        virtual ~Enemy() = 0;
+        virtual ~Enemy();
         std::string const   getType() const;
         void                setType(std::string type);
         int                 getHP() const;

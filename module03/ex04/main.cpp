@@ -5,8 +5,8 @@
 
 int main()
 {
-     SuperTrap andy("andy");
-     std::cout << andy.getHitPoints();
+    SuperTrap andy("andy");
+    std::cout << andy.getHitPoints();
     NinjaTrap bob("bobby");
     ClapTrap techmax("techmax");
     ScavTrap mg("mg");

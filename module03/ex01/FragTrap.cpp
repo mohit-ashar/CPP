@@ -30,7 +30,7 @@ FragTrap::~FragTrap( void )
     std::cout << "FR4G-TP " << "Apocalypse destroyed " << this->getName() << ". AMEN!!!  (Destructor called)" << std::endl;
 }
 
-int     FragTrap::getHitPoints( void )
+int     FragTrap::getHitPoints( void ) const
 {
 	return this->hitPoints;
 }
@@ -44,7 +44,7 @@ void    FragTrap::setHitPoints(int hp)
 	    this->hitPoints = hp;
 }
 
-int     FragTrap::getMaxHitPoints( void )
+int     FragTrap::getMaxHitPoints( void ) const
 {
     return this->maxHitPoints;
 }
@@ -54,7 +54,7 @@ void    FragTrap::setMaxHitPoints(int max_hp)
     this->maxHitPoints = max_hp;
 }
 
-int     FragTrap::getEnergyPoints( void )
+int     FragTrap::getEnergyPoints( void ) const
 {
     return this->energyPoints;
 }
@@ -67,7 +67,7 @@ void    FragTrap::setEnergyPoints(int energy_points)
         this->energyPoints = energy_points;
 }
 
-int     FragTrap::getMaxEnergyPoints( void )
+int     FragTrap::getMaxEnergyPoints( void ) const
 {
     return this->maxEnergyPoints;
 }
@@ -77,7 +77,7 @@ void    FragTrap::setMaxEnergyPoints(int max_energy_points)
     this->maxEnergyPoints = max_energy_points;
 }
 
-int     FragTrap::getLevel( void )
+int     FragTrap::getLevel( void ) const
 {
     return this->level;
 }
@@ -87,7 +87,7 @@ void    FragTrap::setLevel(int lvl)
     this->level = lvl;
 }
 
-std::string     FragTrap::getName( void )
+std::string     FragTrap::getName( void ) const
 {
     return this->name;
 }
@@ -97,7 +97,7 @@ void    FragTrap::setName(std::string str)
     this->name = str;
 }
 
-int     FragTrap::getMeleeAttackDamage( void )
+int     FragTrap::getMeleeAttackDamage( void ) const
 {
     return this->meleeAttackDamage;
 }
@@ -107,7 +107,7 @@ void    FragTrap::setMeleeAttackDamage(int melee_damage)
     this->meleeAttackDamage = melee_damage;
 }
 
-int     FragTrap::getRangedAttackDamage( void )
+int     FragTrap::getRangedAttackDamage( void ) const
 {
     return this->rangedAttackDamage;
 }
@@ -117,7 +117,7 @@ void    FragTrap::setRangedAttackDamage(int range_damage)
     this->rangedAttackDamage = range_damage;
 }
 
-int     FragTrap::getArmorDamageReduction( void )
+int     FragTrap::getArmorDamageReduction( void ) const
 {
     return this->armorDamageReduction;
 }
@@ -158,7 +158,7 @@ void    FragTrap::beRepaired(unsigned int amount)
     this->setEnergyPoints(this->getEnergyPoints() + 25);
 }
 
-void    FragTrap::vaulthunter_dot_exe(std::string const & target)
+void            FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
     if(this->getEnergyPoints() < 25)
     {
@@ -177,4 +177,18 @@ void    FragTrap::vaulthunter_dot_exe(std::string const & target)
     srand(time(NULL) * rand());
     std::cout << "FR4G-TP " << target << str[rand() % 5] << std::endl;
     return ;
+}
+
+FragTrap&       FragTrap::operator=(FragTrap const & trap)
+{
+    this->setHitPoints(trap.getHitPoints());
+    this->setMaxEnergyPoints(trap.getMaxEnergyPoints());
+    this->setEnergyPoints(trap.getEnergyPoints());
+    this->setMaxHitPoints(trap.getMaxHitPoints());
+    this->setLevel(trap.getLevel());
+    this->setName(trap.getName());
+    this->setMeleeAttackDamage(trap.getMeleeAttackDamage());
+    this->setRangedAttackDamage(trap.getRangedAttackDamage());
+    this->setArmorDamageReduction(trap.getArmorDamageReduction());
+    return (*this);
 }

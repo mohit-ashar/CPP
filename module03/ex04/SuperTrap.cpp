@@ -16,7 +16,7 @@ SuperTrap::SuperTrap( std::string n): ClapTrap(n), FragTrap(n), NinjaTrap(n)
     this->meleeAttackDamage = this->NinjaTrap::meleeAttackDamage;
     this->rangedAttackDamage = this->FragTrap::rangedAttackDamage;
     this->armorDamageReduction = this->FragTrap::armorDamageReduction;
-    std::cout << "The painful SuperTrap is now ready" << std::endl;
+    std::cout << "SUPER-TP The painful SuperTrap is now ready" << std::endl;
 }
 
 SuperTrap::SuperTrap(SuperTrap & trap)
@@ -58,4 +58,18 @@ void    SuperTrap::beRepaired(unsigned int amount)
     std::cout << "SUPER-TP " << this->getName() << " HP repaired by " << amount << std::endl;
     std::cout << "SUPER-TP " << this->getName() << " HP remaining: " << this->getHitPoints() << std::endl;
     this->setEnergyPoints(this->getEnergyPoints() + 25);
+}
+
+SuperTrap&       SuperTrap::operator=(SuperTrap const & trap)
+{
+    this->setHitPoints(trap.getHitPoints());
+    this->setMaxEnergyPoints(trap.getMaxEnergyPoints());
+    this->setEnergyPoints(trap.getEnergyPoints());
+    this->setMaxHitPoints(trap.getMaxHitPoints());
+    this->setLevel(trap.getLevel());
+    this->setName(trap.getName());
+    this->setMeleeAttackDamage(trap.getMeleeAttackDamage());
+    this->setRangedAttackDamage(trap.getRangedAttackDamage());
+    this->setArmorDamageReduction(trap.getArmorDamageReduction());
+    return (*this);
 }

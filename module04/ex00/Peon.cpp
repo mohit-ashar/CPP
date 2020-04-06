@@ -9,14 +9,14 @@ Peon::Peon(Peon & peon): Victim(peon)
 {
 }
 
-Peon::~Peon()
+Peon::~Peon( void )
 {
     std::cout << "Bleuark..." << std::endl;
 }
 
 void        Peon::getPolymorphed() const
 {
-    std::cout << this->getName() << "  has been turned into a pink pony!" << std::endl;
+    std::cout << this->getName() << " has been turned into a pink pony!" << std::endl;
 }
 
 Peon & Peon::operator = (Peon const & peon)

@@ -30,7 +30,7 @@ ScavTrap::~ScavTrap( void )
     std::cout << "SC4V-TP " << "Hahaha, destroyed challenger " << this->getName() << ". You ain't got the Power mate!!!  (Destructor called)" << std::endl;
 }
 
-int     ScavTrap::getHitPoints( void )
+int     ScavTrap::getHitPoints( void ) const
 {
 	return this->hitPoints;
 }
@@ -44,7 +44,7 @@ void    ScavTrap::setHitPoints(int hp)
 	    this->hitPoints = hp;
 }
 
-int     ScavTrap::getMaxHitPoints( void )
+int     ScavTrap::getMaxHitPoints( void ) const
 {
     return this->maxHitPoints;
 }
@@ -54,7 +54,7 @@ void    ScavTrap::setMaxHitPoints(int max_hp)
     this->maxHitPoints = max_hp;
 }
 
-int     ScavTrap::getEnergyPoints( void )
+int     ScavTrap::getEnergyPoints( void ) const
 {
     return this->energyPoints;
 }
@@ -67,7 +67,7 @@ void    ScavTrap::setEnergyPoints(int energy_points)
         this->energyPoints = energy_points;
 }
 
-int     ScavTrap::getMaxEnergyPoints( void )
+int     ScavTrap::getMaxEnergyPoints( void ) const
 {
     return this->maxEnergyPoints;
 }
@@ -77,7 +77,7 @@ void    ScavTrap::setMaxEnergyPoints(int max_energy_points)
     this->maxEnergyPoints = max_energy_points;
 }
 
-int     ScavTrap::getLevel( void )
+int     ScavTrap::getLevel( void ) const
 {
     return this->level;
 }
@@ -87,7 +87,7 @@ void    ScavTrap::setLevel(int lvl)
     this->level = lvl;
 }
 
-std::string     ScavTrap::getName( void )
+std::string     ScavTrap::getName( void ) const
 {
     return this->name;
 }
@@ -97,7 +97,7 @@ void    ScavTrap::setName(std::string str)
     this->name = str;
 }
 
-int     ScavTrap::getMeleeAttackDamage( void )
+int     ScavTrap::getMeleeAttackDamage( void ) const
 {
     return this->meleeAttackDamage;
 }
@@ -107,7 +107,7 @@ void    ScavTrap::setMeleeAttackDamage(int melee_damage)
     this->meleeAttackDamage = melee_damage;
 }
 
-int     ScavTrap::getRangedAttackDamage( void )
+int     ScavTrap::getRangedAttackDamage( void ) const
 {
     return this->rangedAttackDamage;
 }
@@ -117,7 +117,7 @@ void    ScavTrap::setRangedAttackDamage(int range_damage)
     this->rangedAttackDamage = range_damage;
 }
 
-int     ScavTrap::getArmorDamageReduction( void )
+int     ScavTrap::getArmorDamageReduction( void ) const
 {
     return this->armorDamageReduction;
 }
@@ -177,4 +177,18 @@ void    ScavTrap::challengeNewcomer(std::string const & target)
     srand(time(NULL) * rand());
     std::cout << "SC4V-TP " << target << str[rand() % 5] << std::endl;
     return ;
+}
+
+ScavTrap &   ScavTrap::operator=(ScavTrap const & trap)
+{
+    this->setHitPoints(trap.getHitPoints());
+    this->setMaxEnergyPoints(trap.getMaxEnergyPoints());
+    this->setEnergyPoints(trap.getEnergyPoints());
+    this->setMaxHitPoints(trap.getMaxHitPoints());
+    this->setLevel(trap.getLevel());
+    this->setName(trap.getName());
+    this->setMeleeAttackDamage(trap.getMeleeAttackDamage());
+    this->setRangedAttackDamage(trap.getRangedAttackDamage());
+    this->setArmorDamageReduction(trap.getArmorDamageReduction());
+    return (*this);
 }

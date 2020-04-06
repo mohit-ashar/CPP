@@ -7,7 +7,6 @@ RadScorpion::RadScorpion(): Enemy(80, "RadScorpion")
 
 RadScorpion::RadScorpion(RadScorpion & rs): Enemy(rs)
 {
-    *this = rs;
 }
 
 RadScorpion::~RadScorpion()
@@ -15,7 +14,7 @@ RadScorpion::~RadScorpion()
     std::cout << "* SPROTCH *" << std::endl;
 }
 
-RadScorpion & RadScorpion::operator = (RadScorpion const & rs)
+RadScorpion & RadScorpion::operator=(RadScorpion const & rs)
 {
     if (this != &rs)
     {

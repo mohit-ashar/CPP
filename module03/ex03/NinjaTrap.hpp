@@ -16,6 +16,7 @@ class NinjaTrap: public ClapTrap
         void        ninjaShoeBox(ScavTrap &cp);
         void        ninjaShoeBox(NinjaTrap &cp);
         void        ninjaShoeBox(FragTrap &cp);
+        NinjaTrap & operator=(NinjaTrap const & Trap);
 
 };
 #endif

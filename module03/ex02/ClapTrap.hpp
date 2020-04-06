@@ -21,15 +21,15 @@ class ClapTrap
         ClapTrap(ClapTrap & trap);
         ~ClapTrap();
 
-        int         getHitPoints( void );
-        int         getMaxHitPoints( void );
-        int         getEnergyPoints( void );
-        int         getMaxEnergyPoints( void );
-        int         getLevel( void );
-        std::string getName( void );
-        int         getMeleeAttackDamage( void );
-        int         getRangedAttackDamage( void );
-        int         getArmorDamageReduction( void );
+        int         getHitPoints( void ) const;
+        int         getMaxHitPoints( void ) const;
+        int         getEnergyPoints( void ) const;
+        int         getMaxEnergyPoints( void ) const;
+        int         getLevel( void ) const;
+        std::string getName( void ) const;
+        int         getMeleeAttackDamage( void ) const;
+        int         getRangedAttackDamage( void ) const;
+        int         getArmorDamageReduction( void ) const;
 
         void        setHitPoints(int hp);
         void        setMaxHitPoints(int max_hp);
@@ -45,6 +45,7 @@ class ClapTrap
         void        meleeAttack(std::string const & target);
         void        takeDamage(unsigned int amount);
         void        beRepaired(unsigned int amount);
+        ClapTrap &  operator=(ClapTrap const & trap);
 };
 
 #endif

@@ -4,17 +4,17 @@
 
 class Victim
 {
-    private:
-        Victim(void);
+    protected:
+        Victim( void );
         std::string name;
     public:
         Victim(std::string vicName);
         Victim(Victim & vic);
-        ~Victim();
-        Victim & operator = (Victim const & src);
-        std::string     getName() const;
+        virtual ~Victim( void );
+        Victim & operator=(Victim const & src);
+        std::string     getName( void ) const;
         void            setName(std::string vicName);
-        virtual void            getPolymorphed() const;
+        virtual void    getPolymorphed( void ) const;
 };
 
 std::ostream & operator << (std::ostream & o, Victim  & vic);

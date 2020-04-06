@@ -14,6 +14,7 @@ Fixed::Fixed (int const n)
 Fixed::Fixed (float const n)
 {
     this->_n = roundf(n * (1 << Fixed::_fract));
+    std::cout << this->_n <<std::endl;
     return;
 }
 
@@ -112,7 +113,7 @@ int Fixed::toInt(void) const
 	return (this->_n >> Fixed::_fract);
 }
 
-Fixed &         Fixed::operator++()
+Fixed &         Fixed::operator++(void)
 {
     this->_n++;
     return (*this);
@@ -120,12 +121,12 @@ Fixed &         Fixed::operator++()
 
 Fixed           Fixed::operator++(int)
 {
-        Fixed tmp(*this);
-        operator++();
+        Fixed tmp = Fixed(*this);
+        ++*this;
         return (tmp);
 }
 
-Fixed &         Fixed::operator--()
+Fixed &         Fixed::operator--(void)
 {
     this->_n--;
     return (*this);

@@ -6,7 +6,6 @@ PlasmaRifle::PlasmaRifle(): AWeapon("Plasma Rifle", 5, 21)
 
 PlasmaRifle::PlasmaRifle(PlasmaRifle & pr): AWeapon(pr)
 {
-    *this = pr;
 }
 
 PlasmaRifle::~PlasmaRifle()

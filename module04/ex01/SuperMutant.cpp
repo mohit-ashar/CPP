@@ -7,7 +7,6 @@ SuperMutant::SuperMutant(): Enemy(170, "SuperMutant")
 
 SuperMutant::SuperMutant(SuperMutant & sm): Enemy(sm)
 {
-    *this = sm;
 }
 
 SuperMutant::~SuperMutant()
@@ -28,7 +27,7 @@ void            SuperMutant::takeDamage(int damage)
     this->setHP(this->getHP() - damage);
 }
 
-SuperMutant & SuperMutant::operator = (SuperMutant const & sm)
+SuperMutant & SuperMutant::operator=(SuperMutant const & sm)
 {
     if (this != &sm)
     {

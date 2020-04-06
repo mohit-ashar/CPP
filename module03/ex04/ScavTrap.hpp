@@ -11,6 +11,7 @@ class ScavTrap: public ClapTrap
         ~ScavTrap( void );
         void        challengeNewcomer(std::string const & target);
         void        getClapType();
+        ScavTrap &  operator=(ScavTrap const & trap);
 };
 
 #endif

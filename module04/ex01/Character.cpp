@@ -1,19 +1,16 @@
 #include "Character.hpp"
 
-Character::Character(std::string const & name)
+Character::Character(std::string const & name):charName(name), ap(40), awp(NULL)
 {
-    this->charName = name;
-    this->ap = 40;
-    this->awp = 0;
 }
 
-Character::Character(Character & ch)
+Character::Character(Character & ch):charName(ch.charName), ap(ch.ap), awp(ch.awp)
 {
-    *this = ch;
 }
 
 Character::~Character()
 {
+    std::cout << this->charName << " died" << std::endl;
 }
 
 int     Character::getAP() const
@@ -38,6 +35,9 @@ void    Character::recoverAP()
 
 void    Character::equip(AWeapon* awpn)
 {
+    if (awpn == NULL)
+        return ;
+    std::cout << this->charName << " has equipped " << awpn->getName() << std::endl;
     this->awp = awpn;
 }
 
@@ -47,9 +47,9 @@ void    Character::attack(Enemy* enemy)
         return;
     std::cout << this->charName << " attacks " << enemy->getType();
     std::cout << " with a " << awp->getName() << std::endl;
-    enemy->setHP(enemy->getHP() - awp->getDamage());
-    this->ap = this->ap - awp->getAPCost();
     awp->attack();
+    enemy->takeDamage(awp->getDamage());
+    this->ap = this->ap - awp->getAPCost();
     if (enemy->getHP() <= 0)
         delete enemy;
 }

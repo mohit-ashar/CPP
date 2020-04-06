@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( void ) : ClapTrap(0, 0, 0, 0, 0, "unnamed", 0, 0,0)
+ClapTrap::ClapTrap( void ) : ClapTrap(0, 0, 0, 0, 1, "unnamed",0 ,0 ,0)
 {
     std::cout << "Default ClapTrap constructor called." << std::endl;
 }
@@ -35,7 +35,7 @@ ClapTrap::~ClapTrap( void )
     std::cout << "CL4P-TP " << "ClaaaaapTraaaaap destroyed " << this->getName() << ". BOOOOOOM!!!  (Destructor called)" << std::endl;
 }
 
-int ClapTrap::getHitPoints( void )
+int ClapTrap::getHitPoints( void ) const
 {
     return (this->hitPoints);
 }
@@ -50,7 +50,7 @@ void    ClapTrap::setHitPoints(int hp)
 	    this->hitPoints = hp;
 }
 
-int     ClapTrap::getMaxHitPoints( void )
+int     ClapTrap::getMaxHitPoints( void ) const
 {
     return (this->maxHitPoints);
 }
@@ -60,7 +60,7 @@ void    ClapTrap::setMaxHitPoints(int max_hp)
     this->maxHitPoints = max_hp;
 }
 
-int     ClapTrap::getEnergyPoints( void )
+int     ClapTrap::getEnergyPoints( void ) const
 {
     return (this->energyPoints);
 }
@@ -73,7 +73,7 @@ void    ClapTrap::setEnergyPoints(int energy_points)
         this->energyPoints = energy_points;
 }
 
-int     ClapTrap::getMaxEnergyPoints( void )
+int     ClapTrap::getMaxEnergyPoints( void ) const
 {
     return (this->maxEnergyPoints);
 }
@@ -83,7 +83,7 @@ void    ClapTrap::setMaxEnergyPoints( int max_energy_points)
     this->maxEnergyPoints = max_energy_points;
 }
 
-int     ClapTrap::getLevel( void )
+int     ClapTrap::getLevel( void ) const
 {
     return this->level;
 }
@@ -93,7 +93,7 @@ void    ClapTrap::setLevel(int lvl)
     this->level = lvl;
 }
 
-std::string     ClapTrap::getName( void )
+std::string     ClapTrap::getName( void ) const
 {
     return this->name;
 }
@@ -103,7 +103,7 @@ void    ClapTrap::setName(std::string str)
     this->name = str;
 }
 
-int     ClapTrap::getMeleeAttackDamage( void )
+int     ClapTrap::getMeleeAttackDamage( void ) const
 {
     return this->meleeAttackDamage;
 }
@@ -113,7 +113,7 @@ void    ClapTrap::setMeleeAttackDamage(int melee_damage)
     this->meleeAttackDamage = melee_damage;
 }
 
-int     ClapTrap::getRangedAttackDamage( void )
+int     ClapTrap::getRangedAttackDamage( void ) const
 {
     return this->rangedAttackDamage;
 }
@@ -123,7 +123,7 @@ void    ClapTrap::setRangedAttackDamage(int range_damage)
     this->rangedAttackDamage = range_damage;
 }
 
-int     ClapTrap::getArmorDamageReduction( void )
+int     ClapTrap::getArmorDamageReduction( void ) const
 {
     return this->armorDamageReduction;
 }
@@ -167,4 +167,18 @@ void    ClapTrap::beRepaired(unsigned int amount)
 void    ClapTrap::getClapType()
 {
         std::cout << "(I am trap..Clap trap)CL4P-TP" << std::endl;
+}
+
+ClapTrap&       ClapTrap::operator=(ClapTrap const & trap)
+{
+    this->setHitPoints(trap.getHitPoints());
+    this->setMaxEnergyPoints(trap.getMaxEnergyPoints());
+    this->setEnergyPoints(trap.getEnergyPoints());
+    this->setMaxHitPoints(trap.getMaxHitPoints());
+    this->setLevel(trap.getLevel());
+    this->setName(trap.getName());
+    this->setMeleeAttackDamage(trap.getMeleeAttackDamage());
+    this->setRangedAttackDamage(trap.getRangedAttackDamage());
+    this->setArmorDamageReduction(trap.getArmorDamageReduction());
+    return (*this);
 }

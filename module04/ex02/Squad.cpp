@@ -13,6 +13,7 @@ Squad::~Squad()
     {
         while (i < this->count)
         {
+            std::cout << "a\n";
             delete this->units[i];
             i++;
         }
@@ -26,7 +27,6 @@ Squad::Squad(Squad & squad)
 
     i = 0;
     int n = squad.getCount();
-
     if (squad.units)
     {
         this->units = new ISpaceMarine *[count];
@@ -36,6 +36,9 @@ Squad::Squad(Squad & squad)
             i++;
         }
     }
+    else
+        this->units = NULL;
+    this->count = n;
 }
 
 int     Squad::getCount() const

@@ -12,41 +12,41 @@ AWeapon::AWeapon(AWeapon & awp)
     *this = awp;
 }
 
-AWeapon::~AWeapon()
+AWeapon::~AWeapon( void )
 {
 }
 
-std::string const   AWeapon::getName() const
+std::string const   AWeapon::getName( void ) const
 {
     return (this->weaponName);
 }
 
-void     AWeapon::setName(std::string const & name)
-{
-    this->weaponName = name;
-}
-
-int     AWeapon::getAPCost() const
+int     AWeapon::getAPCost( void ) const
 {
     return (this->apCost);
 }
 
-void    AWeapon::setAPCost(int apcost)
-{
-    this->apCost = apcost;
-}
-
-int     AWeapon::getDamage() const
+int     AWeapon::getDamage( void ) const
 {
     return (this->weaponDamage);
 }
 
-void    AWeapon::setDamage(int damage)
+void    AWeapon::setName(std::string name)
+{
+    this->weaponName = name;
+}
+
+void    AWeapon::setAPCost(int cost)
+{
+    this->apCost = cost;
+}
+
+void    AWeapon::setWeaponDamage(int damage)
 {
     this->weaponDamage = damage;
 }
 
-AWeapon & AWeapon::operator = (AWeapon const & awp)
+AWeapon & AWeapon::operator=(AWeapon const & awp)
 {
     if (this != &awp)
     {

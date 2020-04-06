@@ -12,17 +12,17 @@ Sorcerer::Sorcerer(Sorcerer & src)
     *this = src;
 }
 
-Sorcerer::~Sorcerer()
+Sorcerer::~Sorcerer( void )
 {
     std::cout << this->name << ", " << this->title << "is dead. Consequences will never be the same!" << std::endl;
 }
 
-std::string     Sorcerer::getName() const
+std::string     Sorcerer::getName( void ) const
 {
     return (this->name);
 }
 
-std::string     Sorcerer::getTitle() const
+std::string     Sorcerer::getTitle( void ) const
 {
     return (this->title);
 }

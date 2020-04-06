@@ -15,6 +15,8 @@ class SuperTrap : public FragTrap, public NinjaTrap
         void        meleeAttack(std::string const & target);
         void        takeDamage(unsigned int amount);
         void        beRepaired(unsigned int amount);
+        SuperTrap & operator=(SuperTrap const & trap);
+
 };
 
 #endif

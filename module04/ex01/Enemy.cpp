@@ -37,6 +37,7 @@ void            Enemy::setHP(int hp)
 
 void            Enemy::takeDamage(int damage)
 {
+    std::cout << this->enemyType << " took a damage of " << damage << std::endl;
     if (damage < 0)
         return;
     if (this->getHP() - damage < 0)
