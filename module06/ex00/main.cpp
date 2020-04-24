@@ -11,27 +11,36 @@ int check_and_print_infinity(char *str)
     return (0);
 }
 
+int    print_impossible()
+{
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    std::cout << "float: impossible" << std::endl;
+    std::cout << "double: impossible" << std::endl;
+    return (1);
+}
+
 int check_and_print_impossible(char *str)
 {
     int cnt;
+    int i;
+
     cnt = 0;
-    for(int i = 0; str[i] != '\0'; i++)
+    i = 0;
+    while (str[i] != '\0')
     {
         if( str[i] == '.')
             cnt++;
         if (!isdigit(str[i]))
         {
-            if (((str[i] == '.' && cnt > 1) && i > 0 )||\
-            (!isdigit(str[i]) && i > 0 && (str[i] != '.' && str[i] != 'f')) ||
-            (str[i] == 'f' && str[i+1] != '\0'))
-            {
-                std::cout << "char: impossible" << std::endl;
-                std::cout << "int: impossible" << std::endl;
-                std::cout << "float: impossible" << std::endl;
-                std::cout << "double: impossible" << std::endl;
-                return (1);
-            }
+            if ((str[i] == '.' && cnt > 1) && i > 0 )
+                return( print_impossible());
+            if (!isdigit(str[i]) && i > 0 && (str[i] != '.' && str[i] != 'f'))
+                return( print_impossible());
+            if (str[i] == 'f' && str[i+1] != '\0')
+                return( print_impossible());
         }
+        i++;
     }
     return (0);
 }

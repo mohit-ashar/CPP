@@ -3,7 +3,10 @@
 ScalarConversion::ScalarConversion(char *str)
 {
     errno = 0;
-    this->d = strtod(str, NULL);
+    if (strlen(str) == 1 && !isdigit(str[0]))
+        this->d = (int)str[0];
+    else
+        this->d = strtod(str, NULL);
     if (errno == ERANGE)
     {
         std::cout << "char: impossible" << std::endl;
@@ -12,21 +15,30 @@ ScalarConversion::ScalarConversion(char *str)
         std::cout << "double: impossible" << std::endl;
         return ;
     }
-
-    this->f = strtof(str, NULL);
+    if (strlen(str) == 1 && !isdigit(str[0]))
+        this->f = (int)str[0];
+    else
+        this->f = strtof(str, NULL);
     if (errno == ERANGE)
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: impossible" << std::endl;
         std::cout << "double: "<< this->d; 
-        if (this->d - floor(this->d) == 0)
+        if (this->d - floor(this->d) == 0 && this->d < (double)1000000)
             std::cout << ".0";
         std::cout << std::endl;
         return ;
     }
-
-    if (this->f > 2147483647.0 || this->f < -2147483648.0 || !strcmp(str, "nan") || !strcmp(str, "nanf"))
+    long l;
+    if (strlen(str) == 1 && !isdigit(str[0]))
+        this->i = (int)str[0];
+    else
+        l = strtol(str, NULL, 10);
+    if (errno == ERANGE || l > 2147483647 || l < (long)-2147483648\
+    || !strcmp(str, "-inf") || !strcmp(str, "-inff")\
+    || !strcmp(str, "+inf") || !strcmp(str, "+inff")\
+    || !strcmp(str, "nan") || !strcmp(str, "nanf"))
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
@@ -44,11 +56,11 @@ ScalarConversion::ScalarConversion(char *str)
         std::cout << "int: " << this->i << std::endl;
     }
     std::cout << "float: " << this->f;
-    if (this->f - floor(this->f) == 0)
+    if (this->f - floor(this->f) == 0 && this->f < (float)1000000)
         std::cout << ".0";
     std::cout << "f" << std::endl;
     std::cout << "double: " << this->d;
-    if (this->d - floor(this->d) == 0)
+    if (this->d - floor(this->d) == 0 && this->d < (double)1000000)
         std::cout << ".0";
     std::cout << std::endl;
 }
