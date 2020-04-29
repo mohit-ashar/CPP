@@ -1,7 +1,7 @@
 
 BINARY = megaphone
 
-COMP = clang++ -Wall -Wextra
+COMP = clang++ -Wall -Wextra -Werror
 # COMP = gcc -Wall -Wextra -g3
 SRC := $(wildcard *.cpp)
 OBJ := $(patsubst %.cpp, %.o, $(SRC))

@@ -7,26 +7,92 @@ Contact    Contact::create(int ind)
     std::cout << "Please enter the following details..\n";
     std::cout << "Enter first name: ";
     std::getline (std::cin,c.first_name);
+    if (c.first_name.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+
     std::cout << "Enter last name: ";
     std::getline (std::cin,c.last_name);
+    if (c.last_name.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+
     std::cout << "Enter nick name: ";
     std::getline (std::cin,c.nick_name);
+    if (c.nick_name.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+
     std::cout << "Enter login: ";
     std::getline (std::cin,c.login);
+    if (c.login.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+    
     std::cout << "Enter postal address: ";
     std::getline (std::cin,c.postal_address);
+    if (c.postal_address.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+
     std::cout << "Enter email address: ";
     std::getline (std::cin,c.email_address);
+    if (c.email_address.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+    
     std::cout << "Enter phone number: ";
     std::getline (std::cin,c.phone_number);
+    if (c.phone_number.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+    
     std::cout << "birthday date(ex: 01/05/1995): ";
     std::getline (std::cin,c.birthday_date);
+    if (c.birthday_date.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+    
     std::cout << "Enter favourite meal: ";
     std::getline (std::cin,c.favorite_meal);
+    if (c.favorite_meal.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+    
     std::cout << "Enter underwear color: ";
     std::getline (std::cin,c.underwear_color);
+    if (c.underwear_color.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+    
     std::cout << "Enter darkest secret: ";
     std::getline (std::cin,c.darkest_secret);
+    if (c.darkest_secret.empty())
+    {
+        std::cout << "EOF!!!" << std::endl << "Shouldn't have done that\nOff you go. BYE :(" << std::endl;
+        exit (0);
+    }
+    
     std::cout << "Contact added\n\n";
     return c;
 }

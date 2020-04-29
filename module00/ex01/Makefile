@@ -1,7 +1,7 @@
 
 BINARY = phonebook
 
-COMP = clang++ -Wall -Wextra -Werror -I.
+COMP = clang++ -Wall -Wextra -Werror -I. -fsanitize=address
 # COMP = gcc -Wall -Wextra -g3
 SRC := $(wildcard *.cpp)
 OBJ := $(patsubst %.cpp, %.o, $(SRC))
