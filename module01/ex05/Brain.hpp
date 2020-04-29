@@ -5,5 +5,6 @@ class Brain
 {
     public:
         std::string identify() const;
+        void        think() const;
 };
 #endif

@@ -3,10 +3,11 @@
 # include "Brain.hpp"
 class Human: public Brain
 {
-    public:
+    private:
         Brain const b;
-        const Brain& getBrain() const;
+    public:
         Human();
+        const Brain& getBrain() const;
         std::string identify() const;
 };
 #endif

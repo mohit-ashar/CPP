@@ -11,3 +11,8 @@ std::string Brain::identify() const
 	ret.append(ss.str());
 	return (ret);
 }
+
+void		Brain::think() const
+{
+	std::cout << "Thinking........." << std::endl;
+}

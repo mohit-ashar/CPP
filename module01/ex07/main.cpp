@@ -8,14 +8,14 @@ int strError(std::string str, int ret)
 }
 int main(int ac, char **av)
 {
+    if (ac != 4)
+        return(strError("Incorrect number of arguments", 1));
     std::string find = av[2];
     std::string replace = av[3];
     std::ifstream ifs(av[1]);
     size_t n = 0;
     size_t find_len = find.size();
 
-    if (ac != 4)
-        return(strError("Incorrect number of arguments", 1));
     if (av[1][0] == 0 || av[2][0] == 0 || av[3][0] == 0)
         return(strError("String cannot be empty", 1));
     std::string filename = av[1];

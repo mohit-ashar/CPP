@@ -18,10 +18,10 @@ void    Zombie::setType(std::string z_type)
 
 void    Zombie::randomChump()
 {
-    Zombie *z;
+    Zombie z;
     const std::string names[] = {"Gerrard", "Aguero", "Bernardo", "Suarez", "Fraudiola", "Torres", "Tevez"};
     const std::string types[] = {"scouser", "cheater", "biter", "diver"};
-    z->setName(names[time(NULL) % 7]);
-    z->setType(types[time(NULL) % 4]);
-    z->announce();
+    z.setName(names[time(NULL) % 7]);
+    z.setType(types[time(NULL) % 4]);
+    z.announce();
 }
