@@ -3,7 +3,7 @@
 # include "Zombie.hpp"
 # include <iostream>
 
-class ZombieEvent: public Zombie
+class ZombieEvent
 {
     private:
         std::string type;

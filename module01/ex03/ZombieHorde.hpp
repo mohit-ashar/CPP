@@ -3,15 +3,16 @@
 # include <iostream>
 # include "Zombie.hpp"
 
-class ZombieHorde: public Zombie
+class ZombieHorde
 {
     private:
         int     size;
         Zombie  *z;
+        void    random_zombie(Zombie *z);
     public:
         ZombieHorde(int n);
         ~ZombieHorde();
-        void    announce();
+        void    announce() const;
 };
 
 #endif

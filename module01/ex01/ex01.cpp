@@ -8,8 +8,8 @@ void memoryLeak()
     panther = 0;
 }
 
-int main()
-{
-    memoryLeak();
-    return (0);
-}
+// int main()
+// {
+//     memoryLeak();
+//     return (0);
+// }

@@ -1,0 +1,3 @@
+Make a Pony class, containing whatever you think adequately describes a pony. Then,
+create two functions, ponyOnTheHeap and ponyOnTheStack, in which you will allocate a
+Pony, and make it do some stuff.

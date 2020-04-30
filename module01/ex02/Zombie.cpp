@@ -1,5 +1,10 @@
 #include "Zombie.hpp"
 
+Zombie::~Zombie()
+{
+    std::cout << "Arrrrggghhhhh.... Mr." << this->name << " shall R.I.P. Grave loss for the " << this->type << " type" << std::endl;
+}
+
 void    Zombie::announce()
 {
     std::cout << "Braiiiiinzzzz, The name is " << name;

@@ -4,8 +4,6 @@
 int main()
 {
     Zombie z;
-    Zombie random_z;
-    Zombie *z1;
     ZombieEvent ze;
 
     z.setName("Zee 1");
@@ -13,7 +11,7 @@ int main()
     z.announce();
     z.randomChump();
     ze.setZombieType("Psycho");
-    z1 = ze.newZombie("Zomboi");
+    Zombie *z1 = ze.newZombie("Zomboi");
     z1->announce();
     delete z1;
     z1 = 0;

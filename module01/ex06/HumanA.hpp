@@ -8,8 +8,8 @@ class HumanA
         Weapon &w;
         std::string name;
     public:
-        void    attack();
         HumanA(std::string n, Weapon &w1);
+        void    attack();
         void    setName(std::string n);
 };
 
