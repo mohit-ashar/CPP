@@ -8,7 +8,6 @@ class Fixed
     public:
 
         Fixed( void );
-        Fixed( int const n );
         Fixed( Fixed const & src );
         ~Fixed( void );
 

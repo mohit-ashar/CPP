@@ -1,7 +1,7 @@
 #include "Fixed.hpp"
 int main( void )
 {
-    Fixed a(10);
+    Fixed a(0);
     std::cout << a << std::endl;
     Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
     Fixed c( Fixed( 10 ) / Fixed( 2 ) );

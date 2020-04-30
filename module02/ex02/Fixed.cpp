@@ -14,7 +14,6 @@ Fixed::Fixed (int const n)
 Fixed::Fixed (float const n)
 {
     this->_n = roundf(n * (1 << Fixed::_fract));
-    std::cout << this->_n <<std::endl;
     return;
 }
 

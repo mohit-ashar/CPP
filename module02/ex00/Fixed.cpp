@@ -6,12 +6,6 @@ Fixed::Fixed( void ): _n( 0 )
     return;
 }
 
-Fixed::Fixed (int const n): _n(n)
-{
-    std::cout << "Parametric constructor called" << std::endl;
-    return;
-}
-
 Fixed::Fixed(Fixed const & src)
 {
     std::cout << "Copy constructor called" << std::endl;
