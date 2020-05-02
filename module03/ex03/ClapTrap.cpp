@@ -1,11 +1,11 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( void ) : ClapTrap(0, 0, 0, 0, 0, "unnamed",0 ,0 ,0)
+ClapTrap::ClapTrap( void ) : ClapTrap(0, 0, 0, 0, 1, "unnamed",0 ,0 ,0)
 {
     std::cout << "Default ClapTrap constructor called." << std::endl;
 }
 
-ClapTrap::ClapTrap( std::string n): ClapTrap(0, 0, 0, 0, 0, n, 0, 0, 0)
+ClapTrap::ClapTrap( std::string n): ClapTrap(0, 0, 0, 0, 1, n, 0, 0, 0)
 {
 
 }

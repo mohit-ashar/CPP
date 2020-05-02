@@ -5,7 +5,7 @@
 
 class FragTrap
 {
-    protected:
+    private:
         int         hitPoints;
         int         maxHitPoints;
         int         energyPoints;

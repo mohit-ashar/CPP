@@ -20,6 +20,9 @@ int main()
     zoo.meleeAttack(andy.getName());
     andy.takeDamage(zoo.getMeleeAttackDamage());
     andy.vaulthunter_dot_exe(zoo.getName());
+    andy.vaulthunter_dot_exe(zoo.getName());
+    andy.vaulthunter_dot_exe(zoo.getName());
+    andy.vaulthunter_dot_exe(zoo.getName());
     andy.beRepaired(25);
 
 
@@ -34,6 +37,9 @@ int main()
     max.challengeNewcomer(tom.getName());
     tom.meleeAttack(max.getName());
     max.takeDamage(tom.getMeleeAttackDamage());
+    max.challengeNewcomer(tom.getName());
+    max.challengeNewcomer(tom.getName());
+    max.challengeNewcomer(tom.getName());
     max.challengeNewcomer(tom.getName());
     max.beRepaired(25);
 

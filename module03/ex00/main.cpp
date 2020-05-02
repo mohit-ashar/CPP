@@ -17,6 +17,9 @@ int main()
     andy.takeDamage(zoo.getMeleeAttackDamage());
     
     andy.vaulthunter_dot_exe(zoo.getName());
+    andy.vaulthunter_dot_exe(zoo.getName());
+    andy.vaulthunter_dot_exe(zoo.getName());
+    andy.vaulthunter_dot_exe(zoo.getName());
     
     andy.beRepaired(25);
 

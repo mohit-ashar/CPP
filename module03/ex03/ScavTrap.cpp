@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void ): ClapTrap(0, 0, 0, 0, 0, "unnamed",0 ,0 ,0)
+ScavTrap::ScavTrap( void ): ClapTrap(0, 0, 0, 0, 1, "unnamed",0 ,0 ,0)
 {
     std::cout << "Default ScavTrap constructor called." << std::endl;
 }
