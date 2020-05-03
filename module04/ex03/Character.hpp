@@ -12,7 +12,7 @@ class Character : public ICharacter
         int         current_slot;
     public:
         Character(std::string n);
-        Character(Character & character);
+        Character(Character &character);
         ~Character();
         virtual std::string const & getName() const;
         virtual void equip(AMateria* m);

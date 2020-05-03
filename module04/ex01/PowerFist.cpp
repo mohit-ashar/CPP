@@ -4,7 +4,7 @@ PowerFist::PowerFist():AWeapon("Power Fist", 8, 50)
 {
 }
 
-PowerFist::PowerFist(PowerFist & pf): AWeapon(pf)
+PowerFist::PowerFist(PowerFist const & pf): AWeapon(pf)
 {
 }
 

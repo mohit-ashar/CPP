@@ -13,7 +13,6 @@ Squad::~Squad()
     {
         while (i < this->count)
         {
-            std::cout << "a\n";
             delete this->units[i];
             i++;
         }
@@ -21,7 +20,7 @@ Squad::~Squad()
     delete[] this->units;
 }
 
-Squad::Squad(Squad & squad)
+Squad::Squad(Squad const & squad)
 {
     int i;
 
@@ -61,7 +60,15 @@ int     Squad::push(ISpaceMarine* marine)
     i = 0;
     if (marine == 0)
         return (this->count);
-    new_unit = new ISpaceMarine*[this->count + 1];
+    while (i < this->count)
+    {
+        if (this->units[i] == marine)
+            return (this->count);
+        i++;
+    }
+    if (!(new_unit = new ISpaceMarine*[this->count + 1]))
+        return (this->count);
+    i = 0;
     while(i < this->count)
     {
         new_unit[i] = this->units[i];
@@ -74,8 +81,9 @@ int     Squad::push(ISpaceMarine* marine)
     return (this->count);
 }
 
-Squad & Squad::operator=(Squad const & squad)
+Squad &Squad::operator=(Squad const &squad)
 {
+    std::cout << "Here\n";
     int i;
 
     i = 0;
@@ -88,6 +96,7 @@ Squad & Squad::operator=(Squad const & squad)
         }
         delete[] this->units;
         this->count = 0;
+        // this->units = NULL;
         i = 0;
         while (i < squad.count)
         {

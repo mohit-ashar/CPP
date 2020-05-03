@@ -4,13 +4,12 @@ Character::Character(std::string const & name):charName(name), ap(40), awp(NULL)
 {
 }
 
-Character::Character(Character & ch):charName(ch.charName), ap(ch.ap), awp(ch.awp)
+Character::Character(Character const & ch):charName(ch.charName), ap(ch.ap), awp(ch.awp)
 {
 }
 
 Character::~Character()
 {
-    std::cout << this->charName << " died" << std::endl;
 }
 
 int     Character::getAP() const
@@ -43,7 +42,12 @@ void    Character::equip(AWeapon* awpn)
 
 void    Character::attack(Enemy* enemy)
 {
-    if (this->awp == 0 || this->ap < awp->getAPCost())
+    if (this->awp == 0)
+    {
+        std::cout << this->charName << " is unarmed" << std::endl;
+        return;
+    }
+    if (!enemy || this->ap < awp->getAPCost())
         return;
     std::cout << this->charName << " attacks " << enemy->getType();
     std::cout << " with a " << awp->getName() << std::endl;
@@ -59,7 +63,7 @@ std::string const   Character::getName() const
     return (this->charName);
 }
 
-AWeapon*    Character::getAWP()
+AWeapon*    Character::getAWP() const
 {
     return (this->awp);
 }

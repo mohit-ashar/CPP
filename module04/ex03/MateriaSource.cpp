@@ -17,7 +17,7 @@ MateriaSource::~MateriaSource()
     }
 }
 
-MateriaSource::MateriaSource(MateriaSource const & ms)
+MateriaSource::MateriaSource(MateriaSource const &ms)
 {
     int i;
 
@@ -25,6 +25,11 @@ MateriaSource::MateriaSource(MateriaSource const & ms)
     while (i < ms.current_slot)
     {
         this->memory[i] = ms.memory[i]->clone();
+        i++;
+    }
+    while (i < 4)
+    {
+        this->memory[i] = 0;
         i++;
     }
     this->current_slot = ms.current_slot;
@@ -38,7 +43,7 @@ void            MateriaSource::learnMateria(AMateria *m)
     this->current_slot++;
 }
 
-AMateria*            MateriaSource::createMateria(std::string const & type)
+AMateria*            MateriaSource::createMateria(std::string const &type)
 {
     int i;
     i = 0;
@@ -52,16 +57,11 @@ AMateria*            MateriaSource::createMateria(std::string const & type)
     return (0);
 }
 
-MateriaSource   & MateriaSource::operator=(MateriaSource const & ms)
+MateriaSource   &MateriaSource::operator=(MateriaSource const &ms)
 {
     int i;
 
     i = 0;
-    // if (this->current_slot == 0)
-    // {
-    //     this->current_slot = ms.current_slot;
-    //     return (*this);
-    // }
     while (i < this->current_slot)
     {
         delete this->memory[i];

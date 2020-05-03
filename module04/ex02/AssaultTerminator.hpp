@@ -12,6 +12,6 @@ class AssaultTerminator: public ISpaceMarine
         virtual void battleCry() const;
         virtual void rangedAttack() const;
         virtual void meleeAttack() const;
-        AssaultTerminator & operator=(AssaultTerminator const & AssaultTerminator);
+        AssaultTerminator & operator=(AssaultTerminator const & a_terminator);
 };
 #endif

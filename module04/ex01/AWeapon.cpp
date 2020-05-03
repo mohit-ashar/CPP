@@ -7,7 +7,7 @@ AWeapon::AWeapon(std::string const & name, int apcost, int damage)
     this->weaponDamage = damage;
 }
 
-AWeapon::AWeapon(AWeapon & awp)
+AWeapon::AWeapon(AWeapon const & awp)
 {
     *this = awp;
 }

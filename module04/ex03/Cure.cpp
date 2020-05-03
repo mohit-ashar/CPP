@@ -4,13 +4,12 @@ Cure::Cure(): AMateria("cure")
 {
 }
 
-Cure::Cure(Cure const & cure): AMateria(cure)
+Cure::Cure(Cure const &cure): AMateria(cure)
 {
 }
 
 Cure::~Cure()
 {
-
 }
 
 AMateria* Cure::clone() const

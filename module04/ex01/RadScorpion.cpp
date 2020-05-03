@@ -5,7 +5,7 @@ RadScorpion::RadScorpion(): Enemy(80, "RadScorpion")
     std::cout << "* click click click *" << std::endl;
 }
 
-RadScorpion::RadScorpion(RadScorpion & rs): Enemy(rs)
+RadScorpion::RadScorpion(RadScorpion const & rs): Enemy(rs)
 {
 }
 

@@ -6,7 +6,7 @@ class PowerFist: public AWeapon
 {
     public:
         PowerFist();
-        PowerFist(PowerFist & pt);
+        PowerFist(PowerFist const & pt);
         ~PowerFist();
         virtual void    attack() const;
         PowerFist & operator=(PowerFist const & pf);

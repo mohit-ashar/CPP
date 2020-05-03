@@ -11,10 +11,10 @@ class MateriaSource: public IMateriaSource
     public:
         MateriaSource();
         ~MateriaSource();
-        MateriaSource(MateriaSource const & ms);
+        MateriaSource(MateriaSource const &ms);
         virtual void        learnMateria(AMateria* a);
-        virtual AMateria*   createMateria(std::string const & type);
-        MateriaSource & operator=(MateriaSource const & ms);
+        virtual AMateria*   createMateria(std::string const &type);
+        MateriaSource &operator=(MateriaSource const &ms);
 };
 
 #endif

@@ -11,9 +11,9 @@ class Enemy
         std::string enemyType;
     public:
         Enemy(int hp, std::string const & type);
-        Enemy(Enemy & enemy);
+        Enemy(Enemy const & enemy);
         virtual ~Enemy();
-        std::string const   getType() const;
+        std::string const   &getType() const;
         void                setType(std::string type);
         int                 getHP() const;
         void                setHP(int hp);

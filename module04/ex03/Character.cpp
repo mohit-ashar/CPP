@@ -20,7 +20,6 @@ Character::~Character()
             delete this->materia[i];
         i++;
     }
-    // delete[] *this->materia;
 }
 
 Character::Character(Character & character)
@@ -31,6 +30,11 @@ Character::Character(Character & character)
     while (i < character.current_slot)
     {
         this->materia[i] = character.materia[i]->clone();
+        i++;
+    }
+    while (i < 4)
+    {
+        this->materia[i] = 0;
         i++;
     }
     this->name = character.name;
@@ -44,7 +48,7 @@ std::string const & Character::getName( void ) const
 
 void                Character::equip(AMateria *m)
 {
-    if (this->current_slot == 4)
+    if (this->current_slot == 4 || !m)
         return ;
     this->materia[current_slot] = m;
     this->current_slot++;
@@ -52,10 +56,14 @@ void                Character::equip(AMateria *m)
 
 void                Character::unequip(int idx)
 {
+    int i = idx;
     if (this->current_slot < idx || idx < 0 || this->current_slot == 0)
         return ;
-    this->materia[idx] = 0;
-    this->current_slot--;
+    while (i < this->current_slot - 1)
+    {
+        this->materia[i] = this->materia[i+1];
+    }
+    this->materia[current_slot--] = 0;
 }
 
 void                Character::use(int idx, ICharacter& target)
@@ -70,12 +78,6 @@ Character & Character::operator=(Character const & character)
     int i;
 
     i = 0;
-    // if (character.current_slot == 0)
-    // {
-    //     this->current_slot = character.current_slot;
-    //     this->name = character.name;
-    //     return (*this);
-    // }
     while(i < this->current_slot)
     {
         delete this->materia[i];

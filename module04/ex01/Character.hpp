@@ -13,12 +13,13 @@ class Character
         AWeapon*    awp;
     public:
         Character(std::string const & name);
-        Character(Character & ch);
+        Character(Character const & ch);
         ~Character();
+
         int                 getAP() const;
         void                setAP(int attackPoints);
         void                recoverAP();
-        AWeapon*            getAWP();                
+        AWeapon*            getAWP() const;
         void                equip(AWeapon* awpn);
         void                attack(Enemy* enemy);
         std::string const   getName() const;

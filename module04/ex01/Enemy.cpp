@@ -6,16 +6,17 @@ Enemy::Enemy(int hp, std::string const & type)
     this->enemyType = type;
 }
 
-Enemy::Enemy(Enemy & enemy)
+Enemy::Enemy(Enemy const & enemy)
 {
-    *this = enemy;
+    this->hitPoints = enemy.getHP();
+    this->enemyType = enemy.getType();
 }
 
 Enemy::~Enemy()
 {
 }
 
-std::string const     Enemy::getType() const
+std::string const     &Enemy::getType() const
 {
     return (this->enemyType);
 }

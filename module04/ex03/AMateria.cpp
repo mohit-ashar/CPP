@@ -15,12 +15,13 @@ AMateria::~AMateria()
 {
 }
 
-AMateria::AMateria(AMateria const & am)
+AMateria::AMateria(AMateria const &am)
 {
-    *this = am;
+    this->materiaType = am.materiaType;
+    this->_xp = am._xp;
 }
 
-std::string const & AMateria::getType() const
+std::string const &AMateria::getType() const
 {
     return (this->materiaType);
 }
@@ -40,13 +41,13 @@ void                AMateria::setXP(unsigned int xp)
     this->_xp = xp;
 }
 
-void        AMateria::use(ICharacter & target)
+void        AMateria::use(ICharacter &target)
 {
     (void)target;
     this->_xp = this->_xp + 10;
 }
 
-AMateria & AMateria::operator=(AMateria const & am)
+AMateria &AMateria::operator=(AMateria const &am)
 {
     if (this != &am)
     {
