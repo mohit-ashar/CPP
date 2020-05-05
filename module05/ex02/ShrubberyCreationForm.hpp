@@ -7,13 +7,11 @@ class ShrubberyCreationForm: public Form
 {
     private:
         ShrubberyCreationForm( void );
-        std::string target;
     public:
-        ~ShrubberyCreationForm( void );
+        virtual ~ShrubberyCreationForm( void );
         ShrubberyCreationForm(ShrubberyCreationForm const & scf);
         ShrubberyCreationForm(std::string target);
-        std::string getTarget( void ) const;
-        void execute(Bureaucrat const & executor) const;
+        virtual void execute(Bureaucrat const & executor) const;
         ShrubberyCreationForm & operator=(ShrubberyCreationForm const & scf);
         std::string        plantTree() const;
 };

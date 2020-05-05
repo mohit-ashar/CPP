@@ -13,25 +13,26 @@ class Form
         bool                is_signed;
         int         const   grade_sign;
         int         const   grade_execute;
+        std::string         target;
         Form( void );
+
     public:
-      ~Form( void );
+      virtual ~Form( void );
       Form(Form const & f);
-      Form(std::string f_name, int f_grade_sign, int f_grade_execute);
+      Form(std::string f_name, int f_grade_sign, int f_grade_execute, std::string const &target);
+
 
       std::string getName() const;
       bool        isSigned() const;
       int         get_grade_sign() const;
       int         get_grade_execute() const;
       void        beSigned(Bureaucrat const &b);
+      std::string const &getTarget() const;
+	    void setTarget(std::string const &target);
 
       virtual void         execute(Bureaucrat const &executor) const = 0;
 
       class GradeTooLowException: public std::exception
-      {
-        virtual const char* what() const throw();
-      };
-      class InvalidFormException: public std::exception
       {
         virtual const char* what() const throw();
       };

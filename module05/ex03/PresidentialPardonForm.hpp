@@ -6,15 +6,12 @@ class PresidentialPardonForm: public Form
 {
     private:
         PresidentialPardonForm( void );
-        std::string target;
     public:
-        ~PresidentialPardonForm( void );
+        virtual ~PresidentialPardonForm( void );
         PresidentialPardonForm(PresidentialPardonForm const & rmr);
         PresidentialPardonForm(std::string target);
-        std::string getTarget( void ) const;
-        virtual void        setTarget(std::string str);
+        virtual void        execute(Bureaucrat const & executor) const;
         virtual Form*       clone( void ) const;
-        void        execute(Bureaucrat const & executor) const;
         PresidentialPardonForm &   operator=(PresidentialPardonForm const & rmr);
 };
 std::ostream & operator<<(std::ostream & o, PresidentialPardonForm const & rmr);

@@ -3,9 +3,6 @@
 # include <iostream>
 # include <stdexcept>
 
-class GradeTooHighException;
-class GradeTooLowException;
-
 class Bureaucrat
 {
     private:
@@ -20,7 +17,6 @@ class Bureaucrat
         
         std::string const getName() const;
         int               getGrade() const;
-        void              setGrade(int n);
         
         void              upgrade( void );
         void              downgrade( void );

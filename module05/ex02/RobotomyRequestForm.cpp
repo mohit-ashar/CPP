@@ -10,14 +10,8 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & rmr):Form(r
 
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string tgt):Form("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string tgt):Form("RobotomyRequestForm", 72, 45, tgt)
 {
-    this->target = tgt;
-}
-
-std::string RobotomyRequestForm::getTarget( void ) const
-{
-    return (this->target);
 }
 
 void        RobotomyRequestForm::execute(Bureaucrat const & executor) const
@@ -35,8 +29,7 @@ void        RobotomyRequestForm::execute(Bureaucrat const & executor) const
 
 RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm const & scf)
 {
-    std::string tgt(scf.getTarget());
-    this->target = tgt;
+    this->Form::setTarget(scf.Form::getTarget());
     return (*this);
 }
 

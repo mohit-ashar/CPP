@@ -21,12 +21,11 @@ class Bureaucrat
         
         std::string const getName() const;
         int               getGrade() const;
-        void              setGrade(int n);
         
         void              upgrade( void );
         void              downgrade( void );
         
-        void              signForm(Form f);
+        void              signForm(Form &f);
         class GradeTooLowException: public std::exception
         {
           virtual const char* what() const throw();

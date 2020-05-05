@@ -10,19 +10,8 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & rm
 
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string tgt):Form("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string tgt):Form("PresidentialPardonForm", 25, 5, tgt)
 {
-    this->target = tgt;
-}
-
-std::string PresidentialPardonForm::getTarget( void ) const
-{
-    return (this->target);
-}
-
-void        PresidentialPardonForm::setTarget( std::string str)
-{
-    this->target = str;
 }
 
 void        PresidentialPardonForm::execute(Bureaucrat const & executor) const
@@ -31,19 +20,19 @@ void        PresidentialPardonForm::execute(Bureaucrat const & executor) const
     std::cout << this->getTarget() <<" has been pardoned by Zafod Beeblebrox." << std::endl;
 }
 
-PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & scf)
-{
-    std::string tgt(scf.getTarget());
-    this->target = tgt;
-    return (*this);
-}
-
 Form*       PresidentialPardonForm::clone () const
 {
     PresidentialPardonForm *f = new PresidentialPardonForm(*this);
-    f->target = this->target;
+    f->setTarget(this->getTarget());
     return (f);
 }
+
+PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & scf)
+{
+    this->Form::setTarget(scf.Form::getTarget());
+    return (*this);
+}
+
 
 std::ostream & operator<<(std::ostream & o, PresidentialPardonForm const & scf)
 {

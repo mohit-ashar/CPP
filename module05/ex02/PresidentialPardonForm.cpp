@@ -10,14 +10,8 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & rm
 
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string tgt):Form("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string tgt):Form("PresidentialPardonForm", 25, 5, tgt)
 {
-    this->target = tgt;
-}
-
-std::string PresidentialPardonForm::getTarget( void ) const
-{
-    return (this->target);
 }
 
 void        PresidentialPardonForm::execute(Bureaucrat const & executor) const
@@ -28,8 +22,7 @@ void        PresidentialPardonForm::execute(Bureaucrat const & executor) const
 
 PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & scf)
 {
-    std::string tgt(scf.getTarget());
-    this->target = tgt;
+    this->Form::setTarget(scf.Form::getTarget());
     return (*this);
 }
 

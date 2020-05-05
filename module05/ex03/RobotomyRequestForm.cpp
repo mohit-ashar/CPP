@@ -10,19 +10,8 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & rmr):Form(r
 
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string tgt):Form("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string tgt):Form("RobotomyRequestForm", 72, 45, tgt)
 {
-    this->target = tgt;
-}
-
-std::string RobotomyRequestForm::getTarget( void ) const
-{
-    return (this->target);
-}
-
-void        RobotomyRequestForm::setTarget( std::string str)
-{
-    this->target = str;
 }
 
 void        RobotomyRequestForm::execute(Bureaucrat const & executor) const
@@ -38,20 +27,18 @@ void        RobotomyRequestForm::execute(Bureaucrat const & executor) const
         std::cout << "Failed to robotomize " << this->getTarget() << std::endl;
 }
 
-Form*           RobotomyRequestForm::clone() const
-{
-    RobotomyRequestForm *f = new RobotomyRequestForm(*this);
-    f->target = this->target;
-    return (f);
-}
-
 RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm const & scf)
 {
-    std::string tgt(scf.getTarget());
-    this->target = tgt;
+    this->Form::setTarget(scf.Form::getTarget());
     return (*this);
 }
 
+Form*           RobotomyRequestForm::clone() const
+{
+    RobotomyRequestForm *f = new RobotomyRequestForm(*this);
+    f->setTarget(this->getTarget());
+    return (f);
+}
 
 std::ostream & operator<<(std::ostream & o, RobotomyRequestForm const & scf)
 {

@@ -10,19 +10,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & scf):
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string tgt):Form("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string tgt):Form("ShrubberyCreationForm", 145, 137, tgt)
 {
-    this->target = tgt;
-}
-
-std::string ShrubberyCreationForm::getTarget( void ) const
-{
-    return (this->target);
-}
-
-void        ShrubberyCreationForm::setTarget( std::string str)
-{
-    this->target = str;
 }
 
 std::string ShrubberyCreationForm::plantTree( void ) const
@@ -64,7 +53,8 @@ return (str);
 void        ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     Form::execute(executor);
-    std::string filename = this->getTarget().append("_shrubbery");
+    std::string tgt = this->Form::getTarget();
+    std::string filename = tgt.append("_shrubbery");
     std::ofstream ofs(filename);
     ofs << this->plantTree();
     ofs.close();
@@ -72,15 +62,14 @@ void        ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & scf)
 {
-    std::string tgt(scf.getTarget());
-    this->target = tgt;
+    this->Form::setTarget(scf.Form::getTarget());
     return (*this);
 }
 
-Form*               ShrubberyCreationForm::clone() const
+Form*           ShrubberyCreationForm::clone() const
 {
     ShrubberyCreationForm *f = new ShrubberyCreationForm(*this);
-    f->target = this->target;
+    f->setTarget(this->getTarget());
     return (f);
 }
 
