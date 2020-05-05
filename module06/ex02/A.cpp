@@ -2,6 +2,7 @@
 
 A::A( void )
 {
+    std::cout << "A generated" << std::endl;
 }
 
 A::~A( void )

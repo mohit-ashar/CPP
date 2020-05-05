@@ -2,6 +2,7 @@
 
 B::B( void )
 {
+    std::cout << "B generated" << std::endl;
 }
 
 B::~B( void )

@@ -8,15 +8,20 @@
 
 class ScalarConversion
 {
-    private:
-        ScalarConversion( void );
-    public:
-        char        c;
-        int         i;
-        float       f;
-        double      d;
-        ScalarConversion( char *str );
-        ~ScalarConversion( void );
-        ScalarConversion & operator=(ScalarConversion const & sc);
+	private:
+		ScalarConversion( void );
+		char        c;
+		int         i;
+		float       f;
+		double      d;
+	public:
+		int			getI( void );
+		float		getF( void );
+		double		getD( void );
+		char		getC( void );
+		ScalarConversion( char *str );
+		~ScalarConversion( void );
+		ScalarConversion(ScalarConversion const & sc);
+		ScalarConversion & operator=(ScalarConversion const & sc);
 };
 #endif

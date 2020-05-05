@@ -2,6 +2,7 @@
 
 C::C( void )
 {
+    std::cout << "C generated" << std::endl;
 }
 
 C::~C( void )

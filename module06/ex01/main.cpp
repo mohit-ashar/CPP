@@ -10,5 +10,7 @@ int main()
 	std::cout << "s1 = " << data->s1 << std::endl;
 	std::cout << "n  = " << data->n << std::endl;
 	std::cout << "s2 = " << data->s2 << std::endl;
+	delete (char *)raw;
+	delete data;
 
 }

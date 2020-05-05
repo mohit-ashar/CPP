@@ -1,7 +1,7 @@
 
 BINARY = convert
 
-COMP = clang++ -Wall -Wextra
+COMP = clang++ -Wall -Wextra -g3
 # COMP = gcc -Wall -Wextra -g3
 SRC := $(wildcard *.cpp)
 OBJ := $(patsubst %.cpp, %.o, $(SRC))

@@ -57,6 +57,6 @@ int main(int ac, char **av)
     if (check_and_print_impossible(av[1]))
         return (0);
     ScalarConversion *sc = new ScalarConversion(av[1]);
-    (void)sc;
+    delete sc;
     return (0);
 }
