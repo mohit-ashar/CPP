@@ -1,7 +1,7 @@
 
 BINARY = array
 
-COMP = clang++ -Wall -Wextra
+COMP = clang++ -Wall -Wextra -g3
 # COMP = clang++ -Wall -Wextra -fsanitize=address -g3
 SRC := $(wildcard *.cpp)
 OBJ := $(patsubst %.cpp, %.o, $(SRC))
