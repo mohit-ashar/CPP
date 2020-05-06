@@ -4,7 +4,7 @@ ScalarConversion::ScalarConversion(char *str)
 {
 	errno = 0;
 	if (strlen(str) == 1 && !isdigit(str[0]))
-		this->d = (int)str[0];
+		this->d = <static_cast>str[0];
 	else
 		this->d = strtod(str, NULL);
 	if (errno == ERANGE)
