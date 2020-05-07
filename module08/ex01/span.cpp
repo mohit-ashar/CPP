@@ -46,14 +46,16 @@ long        Span::shortestSpan( void )
     std::list<int>::iterator it;
     std::list<int>::iterator start;
     std::list<int>::iterator end;
-
+    std::list<int> tmp_lst(this->lst);
+    tmp_lst.sort();
     if (this->lst.size() < 2)
         throw NotEnoughNumbersException();
-    for (it = this->lst.begin(); it != (this->lst.end()); )
+    
+    for (it = tmp_lst.begin(); it != (tmp_lst.end()); )
     {
         start = it;
         end = ++it;
-        if (end == this->lst.end())
+        if (end == tmp_lst.end())
             return (span);
         tmp = std::abs((long)*start - (long)*end);
         if (tmp < span)
@@ -64,24 +66,13 @@ long        Span::shortestSpan( void )
 
 long        Span::longestSpan( void )
 {
-    long span = 0;
-    long tmp = 0;
-    std::list<int>::iterator start;
-    std::list<int>::iterator end;
-    std::list<int>::iterator it;
-
-    if (this->lst.size() < 2)
+     if (this->lst.size() < 2)
         throw NotEnoughNumbersException();
-    for (it = this->lst.begin(); it != (this->lst.end()); )
-    {
-        start = it;
-        end = ++it;
-        if (end == this->lst.end())
-            return (span);
-        tmp = std::abs((long)*start - (long)*end);
-        if (tmp > span)
-            span = tmp;
-    }
+    long span = 0;
+
+    int max = *std::max_element(this->lst.begin(), this->lst.end());
+    int min = *std::min_element(this->lst.begin(), this->lst.end());
+    span = max - min;
     return (span);
 }
 

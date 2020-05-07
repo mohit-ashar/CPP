@@ -15,23 +15,25 @@ int main()
     it = lst.begin();
     while (it != lst.end())
     {
-        std::cout << *it << std::endl;
+        std::cout << *it << " ";
         it++;
     }
     try
     {
-        it = easyfind(lst, 10);
+        std::cout << "\n#------Number exists case:";
+        it = easyfind(lst, 3);
+        std::cout << "Number found, your number is " <<  *it <<" and the elements from your number are: \n";
         while (it != lst.end())
         {
-            std::cout << *it << std::endl;
+            std::cout << *it << " ";
             it++;
         }
+        std::cout << "\n#------Number doesn't exist case:\n";
+        it = easyfind(lst, 13);
     }
     catch(NumNotFoundException e)
     {
         std::cout << e.what() << std::endl;
 
     }
-    //Set
-    //Vector
 }

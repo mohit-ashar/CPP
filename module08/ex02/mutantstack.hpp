@@ -23,7 +23,7 @@ class MutantStack: public std::stack<T>
 				iterator( iterator const &other );
 				iterator(MutantStack &st, size_t i);
 				~iterator();
-				T &operator*();
+				T &operator*();//const ?
 				iterator &operator=(iterator const &other);
 				iterator & operator++();
 				iterator operator++(int);

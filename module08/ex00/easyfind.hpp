@@ -15,7 +15,7 @@ class NumNotFoundException: public std::exception
 };
 
 template <typename T>
-typename T::iterator easyfind(T &my_container, int n)
+typename T::iterator easyfind(T &my_container, int n) // const ?
 {
     typename T::iterator it = std::find(my_container.begin(), my_container.end(), n);
     if ( it == my_container.end())
